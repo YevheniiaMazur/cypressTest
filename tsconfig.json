@@ -16,6 +16,12 @@
     "lib": [
       "es2018",
       "dom"
+    ],
+    "include": [
+      "cypress/integration/*.ts",
+      "cypress/full/*.ts",
+      "cypress/support/*.ts",
+      "../node_modules/cypress"
     ]
   }
 }

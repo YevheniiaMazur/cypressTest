@@ -1,6 +1,6 @@
 # CypressTests
 
-This is the basic configurations for writing tests using Cypress + TypeScript.
+This is the simple test suites for covering Amazon functionality with tests written using Cypress + TypeScript.
 
 Next scripts are available:
 * ```npm run cy:open```: to run tests in TestRunner;

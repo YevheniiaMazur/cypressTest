@@ -1,3 +1,4 @@
 {
-  "defaultCommandTimeout": 5000
+  "baseUrl": "https://www.amazon.com/",
+  "defaultCommandTimeout": 12000
 }

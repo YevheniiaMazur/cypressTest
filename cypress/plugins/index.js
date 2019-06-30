@@ -25,5 +25,4 @@ module.exports = (on) => {
         webpackOptions
     };
     on('file:preprocessor', wp(options));
-
 };

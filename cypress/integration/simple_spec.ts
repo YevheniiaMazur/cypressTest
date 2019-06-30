@@ -71,18 +71,22 @@ describe('Localization test suite', () => {
   it('By default EN localization is used', () => {
     cy.get('.icp-nav-language').invoke('text')
       .should('match', /EN/);
-    cy.get('#nav-shop .nav-line-2').invoke('text')
-      .should('match', /Departments/);
-    cy.get('#nav-link-accountList .nav-line-1').invoke('text')
-      .should('match', /Hello, Sign in/);
-    cy.get('#nav-link-accountList .nav-line-2').invoke('text')
-      .should('match', /Account & Lists/);
-    // amazon issue: with reproducibility 5/10 this row is empty
-    // cy.get('#nav-orders .nav-line-1').invoke('text').should('match', /Returns/);
-    cy.get('#nav-orders .nav-line-2').invoke('text')
-      .should('match', /Orders/);
-    cy.get('#nav-cart .nav-line-2').invoke('text')
-      .should('match', /Cart/);
+
+    cy.fixture('en_locale').then((enLocale) => {
+      cy.get('#nav-shop .nav-line-2').invoke('text')
+        .should('match', new RegExp(enLocale.departments));
+      cy.get('#nav-link-accountList .nav-line-1').invoke('text')
+        .should('match', new RegExp(enLocale.greetingText));
+      cy.get('#nav-link-accountList .nav-line-2').invoke('text')
+        .should('match', new RegExp(enLocale.accountLists));
+      // amazon issue: with reproducibility 5/10 this row is empty
+      // cy.get('#nav-orders .nav-line-1').invoke('text')
+      // .should('match', new RegExp(enLocale.returns));
+      cy.get('#nav-orders .nav-line-2').invoke('text')
+        .should('match', new RegExp(enLocale.orders));
+      cy.get('#nav-cart .nav-line-2').invoke('text')
+        .should('match',  new RegExp(enLocale.cart));
+    })
   });
 
   it('ES localization check', () => {
@@ -95,18 +99,22 @@ describe('Localization test suite', () => {
 
     cy.get('.icp-nav-language').invoke('text')
       .should('match', /ES/);
-    cy.get('#nav-shop .nav-line-2').invoke('text')
-      .should('match', /Departamentos/);
-    cy.get('#nav-link-accountList .nav-line-1').invoke('text')
-      .should('match', /Hola, Identifícate/);
-    cy.get('#nav-link-accountList .nav-line-2').invoke('text')
-      .should('match', /Cuenta y Listas/);
-    // amazon issue: with reproducibility 5/10 this row is empty
-    // cy.get('#nav-orders .nav-line-1').invoke('text').should('match', /Devoluciones/);
-    cy.get('#nav-orders .nav-line-2').invoke('text')
-      .should('match', /Pedidos/);
-    cy.get('#nav-cart .nav-line-2').invoke('text')
-      .should('match', /Carrito/);
+
+    cy.fixture('es_locale').then((esLocale) => {
+      cy.get('#nav-shop .nav-line-2').invoke('text')
+        .should('match', new RegExp(esLocale.departments));
+      cy.get('#nav-link-accountList .nav-line-1').invoke('text')
+        .should('match', new RegExp(esLocale.greetingText));
+      cy.get('#nav-link-accountList .nav-line-2').invoke('text')
+        .should('match', new RegExp(esLocale.accountLists));
+      // amazon issue: with reproducibility 5/10 this row is empty
+      // cy.get('#nav-orders .nav-line-1').invoke('text')
+      // .should('match', new RegExp(esLocale.returns));
+      cy.get('#nav-orders .nav-line-2').invoke('text')
+        .should('match', new RegExp(esLocale.orders));
+      cy.get('#nav-cart .nav-line-2').invoke('text')
+        .should('match',  new RegExp(esLocale.cart));
+    })
   });
 
   it('DE localization check', () => {
@@ -119,17 +127,21 @@ describe('Localization test suite', () => {
 
     cy.get('.icp-nav-language').invoke('text')
       .should('match', /DE/);
-    cy.get('#nav-shop .nav-line-2').invoke('text')
-      .should('match', /Kategorien/);
-    cy.get('#nav-link-accountList .nav-line-1').invoke('text')
-      .should('match', /Hallo! Anmelden/);
-    cy.get('#nav-link-accountList .nav-line-2').invoke('text')
-      .should('match', /Konto und Listen/);
-    // amazon issue: with reproducibility 5/10 this row is empty
-    // cy.get('#nav-orders .nav-line-1').invoke('text').should('match', /Rücksendungen/);
-    cy.get('#nav-orders .nav-line-2').invoke('text')
-      .should('match', /Bestellungen/);
-    cy.get('#nav-cart .nav-line-2').invoke('text')
-      .should('match', /Einkaufswagen/);
+
+    cy.fixture('de_locale').then((deLocale) => {
+      cy.get('#nav-shop .nav-line-2').invoke('text')
+        .should('match', new RegExp(deLocale.departments));
+      cy.get('#nav-link-accountList .nav-line-1').invoke('text')
+        .should('match', new RegExp(deLocale.greetingText));
+      cy.get('#nav-link-accountList .nav-line-2').invoke('text')
+        .should('match', new RegExp(deLocale.accountLists));
+      // amazon issue: with reproducibility 5/10 this row is empty
+      // cy.get('#nav-orders .nav-line-1').invoke('text')
+      // .should('match', new RegExp(deLocale.returns));
+      cy.get('#nav-orders .nav-line-2').invoke('text')
+        .should('match', new RegExp(deLocale.orders));
+      cy.get('#nav-cart .nav-line-2').invoke('text')
+        .should('match',  new RegExp(deLocale.cart));
+    })
   });
 });

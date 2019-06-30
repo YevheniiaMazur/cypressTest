@@ -1,21 +1,13 @@
 {
   "compilerOptions": {
-    "declaration": false,
-    "sourceMap": true,
-    "noEmitHelpers": false,
-    "moduleResolution": "node",
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "strict": true,
+    "baseUrl": "../node_modules",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress"]
   },
   "include": [
-    "integration/*.ts",
-    "full/*.ts",
-    "support/*.ts",
-    "../node_modules/cypress"
+    "../node_modules/cypress",
+    "./**/*.ts"
   ]
 }
